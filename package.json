@@ -1,6 +1,5 @@
 {
   "name": "bevi-icon",
-  "private": true,
   "version": "1.0.0",
   "description": "Biblioteca de ícones da Bevi",
   "main": "dist/index.js",
