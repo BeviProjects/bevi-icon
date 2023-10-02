@@ -6,7 +6,7 @@
 
 <br />
 
-<a href="https://github.com/BeviProjects/bevi-icon/issues">📖
+<a href="https://github.com/BeviProjects/bevi-icon/wiki">📖
 <b>Documentation</b></a> ·
 <a href="https://github.com/BeviProjects/bevi-icon/issues">🐞
 <b>Report Bug</b></a> ·
