@@ -84,6 +84,8 @@ medida
   size="4"
 ```
 
+<br />
+
 ### Title
 
 Você também pode adicionar um título ao ícone. Esse é usado
@@ -92,6 +94,14 @@ para acessibilidade e ajuda de leitores de tela.
 ```bash
   title="Título de exemplo"
 ```
+
+<br />
+<br />
+
+## License
+
+Bevi Icon is licensed under the
+[MIT License](https://github.com/BeviProjects/bevi-icon/blob/main/LICENSE).
 
 <br/>
 <br/>

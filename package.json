@@ -1,33 +1,44 @@
 {
-  "name": "bevi-icon",
-  "version": "1.0.4",
-  "description": "Biblioteca de ícones da Bevi",
-  "type": "module",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc --p ./tsconfig-build.json && vite build",
-    "preview": "vite preview",
-    "prepublishOnly": "npm run build"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.7.1",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react": "^3.1.0",
-    "glob": "^10.3.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0",
-    "vite-plugin-dts": "^3.6.0"
-  }
+	"name": "bevi-icon",
+	"version": "1.0.6",
+	"description": "Biblioteca de ícones da Bevi",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"homepage": "https://github.com/BeviProjects/bevi-icon#readme",
+	"bugs": {
+		"url": "https://github.com/BeviProjects/bevi-icon/issues",
+		"email": "andreluizmagjr@outlook.com"
+	},
+	"keywords": [
+		"Bevi",
+		"Bevi Icon",
+		"Icon Library"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc --p ./tsconfig-build.json && vite build",
+		"preview": "vite preview",
+		"prepublishOnly": "npm run build"
+	},
+	"peerDependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.7.1",
+		"@types/react": "^18.0.27",
+		"@types/react-dom": "^18.0.10",
+		"@vitejs/plugin-react": "^3.1.0",
+		"glob": "^10.3.10",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^4.9.3",
+		"vite": "^4.1.0",
+		"vite-plugin-dts": "^3.6.0"
+	},
+	"license": "MIT"
 }

@@ -2,27 +2,23 @@ import { FC } from 'react'
 import Icon from './Icon'
 
 const variantTheme = {
-  solid: "222343",
-  dark: "222343",
-  light: "25CBDB",
-  duo: "inherit"
-};
+	solid: '222343',
+	dark: '222343',
+	light: '25CBDB',
+	duo: 'inherit',
+}
 
 interface BvIconProps {
 	variant?: string | 'solid' | 'duo' | 'dark' | 'light'
 	name: string
 	title?: string
 	size?: number
-	className?: string
 }
 
-const BvIcon: FC<BvIconProps> = ({
-	variant = "solid",
-	name,
-	title,
-	size,
-}, props) => {
-
+const BvIcon: FC<BvIconProps> = (
+	{ variant = 'solid', name, title, size },
+	props
+) => {
 	return (
 		<svg
 			width={size ? size * 16 : 32}
@@ -30,14 +26,14 @@ const BvIcon: FC<BvIconProps> = ({
 			viewBox={`0 0 32 32`}
 			aria-hidden='true'
 			data-icon={`bv-${name}`}
-			color={`#${variantTheme[variant as keyof typeof variantTheme]}`}
+			color={`#${
+				variantTheme[variant as keyof typeof variantTheme]
+			}`}
 			fill='none'
-			xmlns='http://www.w3.org/2000/svg' {...props}>
+			xmlns='http://www.w3.org/2000/svg'
+			{...props}>
 			{title ? <title>{title}</title> : ''}
-			<Icon
-				variant={variant}
-				name={name}
-			/>
+			<Icon variant={variant} name={name} />
 		</svg>
 	)
 }
