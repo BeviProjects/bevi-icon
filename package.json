@@ -1,6 +1,6 @@
 {
 	"name": "bevi-icon",
-	"version": "1.0.6",
+	"version": "1.0.8",
 	"description": "Biblioteca de ícones da Bevi",
 	"type": "module",
 	"main": "dist/index.js",

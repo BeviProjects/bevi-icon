@@ -1,107 +1,137 @@
-<img src='./public/doc/cover.png' title='BeviIcon' alt='Cover BeviIcon' />
 <div align="center">
-  <h3>Biblioteca de ícones da Bevi</h3>
-  	<span>
-		<a href="https://www.npmjs.com/package/bevi-icon"><strong>Npm Package</strong></a>
-	</span>
+
+# Bevi Icon Library
+
+### Uma biblioteca de ícones voltada para projetos Bevi, oferecendo três variantes de modelos que permitem alterar cores e tamanhos de forma simplificada.
+
+<br />
+
+<a href="https://github.com/BeviProjects/bevi-icon/issues">📖
+<b>Documentation</b></a> ·
+<a href="https://github.com/BeviProjects/bevi-icon/issues">🐞
+<b>Report Bug</b></a> ·
+<a href="https://github.com/BeviProjects/bevi-icon/issues">🚀
+<b>Request Feature</b></a>
+
 </div>
 
 <br />
 <br />
 <br />
+
+## O que é Bevi Icon
+
+A Biblioteca de Ícones da Bevi é uma ferramenta poderosa e
+flexível projetada especificamente para atender às
+necessidades dos projetos Bevi. Ela oferece uma vasta
+coleção de ícones que podem ser facilmente integrados em
+seus aplicativos e sites, proporcionando um toque visual
+distintivo e atraente.
+
+### Principais Recursos
+
+- **Três Variantes de Modelo:** A Bevi Icon Library oferece
+  três variantes de modelo: `solid`, `duo`, `light` e
+  `dark`. Isso permite que você escolha o estilo de ícone
+  que melhor se adapta ao seu projeto e ajuste as cores
+  conforme necessário.
+
+- **Facilidade de Uso:** Integrar ícones em seu projeto
+  nunca foi tão simples. Com uma única linha de código, você
+  pode adicionar ícones a botões, barras de navegação, menus
+  e muito mais.
+
+- **Personalização Flexível:** A biblioteca permite que você
+  personalize o tamanho, a cor e até mesmo adicione títulos
+  aos seus ícones, tornando-os altamente adaptáveis às suas
+  necessidades de design.
+
+- **Acessibilidade:** Os ícones da Bevi Icon Library são
+  projetados com acessibilidade em mente. Eles incluem a
+  capacidade de adicionar títulos que são usados para
+  melhorar a experiência de usuários com leitores de tela.
+
+<br />
 <br />
 
 ## Como começar
 
-<br />
+### Instalação
 
-### NPM Package
+Para começar a usar a Biblioteca de Ícones da Bevi, siga os
+passos simples de instalação:
+
+1. Abra seu terminal.
+2. Navegue até a pasta do seu projeto.
+3. Execute o seguinte comando para instalar a biblioteca via
+   NPM:
 
 ```bash
 npm i bevi-icon
 ```
 
-<br/>
-<br/>
+Para mais informações sobre o pacote NPM, você pode visitar
+a
+[📦 página do bevi-icon no NPM](https://www.npmjs.com/package/bevi-icon)
 
-## Como utilizar
+<br />
 
-Para utilizar essa biblioteca, basta instalar o pacote e
-realizar a importação onde deseja utiliza.
+### Importação
 
-```javascript
+Depois de instalar a biblioteca, você pode começar a usá-la
+em seu código. Importe o componente `BvIcon` onde você
+deseja utilizar ícones da Bevi Icon Library. Veja como fazer
+isso em JavaScript/ES6:
+
+```jsx
 import { BvIcon } from 'bevi-icon'
 ```
 
 <br />
 
-Em seguida, pode utilizar o componente especificando suas
-propriedades
+### Uso Básico
 
-```html
-<BvIcon name="cube" variant="duo" />
+Agora que você importou o componente, você pode começar a
+usar ícones em seu projeto. É muito simples:
+
+Em seu código HTML ou JSX, adicione o componente BvIcon e
+especifique o nome do ícone que você deseja exibir. Exemplo:
+
+```jsx
+<BvIcon name='cube' />
 ```
 
-<br />
-<br />
+Você pode personalizar ainda mais o ícone definindo suas
+propriedades, como variante, tamanho e título. Por exemplo:
 
-## Propriedades
-
-Essa biblioteca possui as seguintes propriedades
-
-### Name
-
-Nome do ícone que será exibido no seu projeto. Para mais
-informações sobre os nomes dos ícones disponíveis na
-biblioteca acesse
-[Bevi Icon Doc Beta](https://beviicon-doc.netlify.app/icons).
-
-```bash
-  name="cube"
+```jsx
+<BvIcon
+	name='cube'
+	variant='duo'
+	size={4}
+	title='Ícone de Cubo'
+/>
 ```
 
-<br />
-
-### Variant
-
-Esse atributo é responsável por definir qual variante do
-ícone será renderizado: `solid`, `duo`, `light` ou `dark`
-
-```bash
-  name="dark"
-```
+Isso é tudo o que você precisa para começar a usar ícones da
+Biblioteca de Ícones da Bevi em seu projeto. É simples e
+altamente personalizável para atender às suas necessidades
+de design.
 
 <br />
 
-### Size
-
-Esse atributo é para o tamanho que deseja renderizar o
-ícone, o valor é do tipo `Number` e com base na unidade de
-medida
-[rem](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#relative_length_units).
-
-```bash
-  size="4"
-```
-
-<br />
-
-### Title
-
-Você também pode adicionar um título ao ícone. Esse é usado
-para acessibilidade e ajuda de leitores de tela.
-
-```bash
-  title="Título de exemplo"
-```
+Lembre-se de consultar a
+[📖 documentação dos ícones disponíveis](https://github.com/BeviProjects/bevi-icon/wiki)
+para encontrar os nomes dos ícones que você pode usar em sua
+aplicação.
 
 <br />
 <br />
 
 ## License
 
-Bevi Icon is licensed under the
-[MIT License](https://github.com/BeviProjects/bevi-icon/blob/main/LICENSE).
+A Biblioteca de Ícones da Bevi é licenciada sob os termos da
+[📜 Licença MIT](https://github.com/BeviProjects/bevi-icon/blob/main/LICENSE).
 
 <br/>
 <br/>

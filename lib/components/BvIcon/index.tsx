@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, SVGProps } from 'react'
 import Icon from './Icon'
 
 const variantTheme = {
@@ -8,17 +8,20 @@ const variantTheme = {
 	duo: 'inherit',
 }
 
-interface BvIconProps {
-	variant?: string | 'solid' | 'duo' | 'dark' | 'light'
+interface BvIconProps extends SVGProps<SVGSVGElement> {
 	name: string
-	title?: string
+	variant?: string | 'solid' | 'duo' | 'dark' | 'light'
 	size?: number
+	title?: string
 }
 
-const BvIcon: FC<BvIconProps> = (
-	{ variant = 'solid', name, title, size },
-	props
-) => {
+const BvIcon: FC<BvIconProps> = ({
+	name,
+	variant = 'solid',
+	size,
+	title,
+	...props
+}) => {
 	return (
 		<svg
 			width={size ? size * 16 : 32}

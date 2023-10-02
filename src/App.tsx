@@ -4,7 +4,12 @@ const App = () => {
 	return (
 		<h1>
 			Bevi Icon -{' '}
-			<BvIcon name='cube' size={2} title='Cube' />
+			<BvIcon
+				name='cube'
+				size={2}
+				title='Cube'
+				className='bv-icon'
+			/>
 		</h1>
 	)
 }
