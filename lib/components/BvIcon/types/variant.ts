@@ -1,0 +1,1 @@
+export type variantType = ('solid' | 'duo' | 'dark' | 'light')

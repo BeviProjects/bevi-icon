@@ -1,0 +1,1 @@
+export type weightType = (400 | 600)

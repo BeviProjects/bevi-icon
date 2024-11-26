@@ -1,5 +1,7 @@
 import { FC, SVGProps } from 'react'
-import Icon from './Icon'
+import { Icon } from './Icon'
+import { variantType } from './types/variant'
+import { weightType } from './types/weight'
 
 const variantTheme = {
 	solid: '222343',
@@ -10,16 +12,18 @@ const variantTheme = {
 
 interface BvIconProps extends SVGProps<SVGSVGElement> {
 	name: string
-	variant?: string | 'solid' | 'duo' | 'dark' | 'light'
 	size?: number
 	title?: string
+	variant?: variantType
+	weight?: weightType
 }
 
 const BvIcon: FC<BvIconProps> = ({
 	name,
-	variant = 'solid',
 	size,
 	title,
+	variant = 'solid',
+	weight = 400,
 	...props
 }) => {
 	return (
@@ -36,7 +40,7 @@ const BvIcon: FC<BvIconProps> = ({
 			xmlns='http://www.w3.org/2000/svg'
 			{...props}>
 			{title ? <title>{title}</title> : ''}
-			<Icon variant={variant} name={name} />
+			<Icon variant={variant} weight={weight} name={name} />
 		</svg>
 	)
 }

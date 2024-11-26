@@ -1,29 +1,44 @@
-import {FC} from 'react'
-import solid from './variant/solid'
-import duo from './variant/duo'
-import dark from './variant/dark'
-import light from './variant/light'
+import solid from './variant/solid';
+import duo from './variant/duo';
+import dark from './variant/dark';
+import light from './variant/light';
+import fourHundred from './weight/400';
+import sixHundred from './weight/600';
 
-interface VariationIconProps {
-	variant: string
-	name: string
-}
+import { variantType } from './types/variant';
+import { weightType } from './types/weight';
+import {NotFound} from './utils/notFound'
+import { specialWeightIcons } from './utils/specialWeightIcons';
 
-const Icon: FC<VariationIconProps> = ({
-	variant,
-	name,
-}) => {
-	if (variant === 'solid') {
-		return <>{solid[name]}</>
-	} else if (variant === 'duo') {
-		return <>{duo[name]}</>
-	} else if (variant === 'dark') {
-		return <>{dark[name]}</>
-	} else if (variant === 'light') {
-		return <>{light[name]}</>
-	} else {
-		return <span>Variante não encontrada</span>
-	}
-}
+const iconVariantMap = {
+  solid,
+  duo,
+  dark,
+  light,
+};
 
-export default Icon
+const iconWeightMap: Record<weightType, Record<string, React.ReactNode>> = {
+  400: fourHundred,
+  600: sixHundred,
+};
+
+type VariationIconProps = {
+  name: string;
+  variant?: keyof typeof iconVariantMap;
+  weight?: keyof typeof iconWeightMap;
+};
+
+export const Icon = ({ variant, weight, name }: VariationIconProps) => {
+  // Verifica se o ícone pertence aos "specialWeightIcons"
+  if (weight && specialWeightIcons[weight]?.includes(name)) {
+    const weightComponent = iconWeightMap[weight];
+    return <>{weightComponent[name] || <NotFound />}</>;
+  }
+
+  // Fallback para variant
+  if (variant && iconVariantMap[variant]) {
+    return <>{iconVariantMap[variant][name] || <NotFound />}</>;
+  }
+
+  return <NotFound />;
+};
