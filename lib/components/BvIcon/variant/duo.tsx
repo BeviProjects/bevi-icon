@@ -3533,7 +3533,7 @@ const duo: { [key: string]: ReactNode } = {
 				stroke='#222343'
 				stroke-width='3'
 				stroke-miterlimit='10'
-				stroke-linecap='round'
+				strokeLinecap='round'
 			/>
 			<path
 				opacity='0.52'
