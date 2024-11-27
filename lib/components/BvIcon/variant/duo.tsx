@@ -3531,9 +3531,9 @@ const duo: { [key: string]: ReactNode } = {
 			<path
 				d='M8.16664 8.13331L2.51331 2.47998'
 				stroke='#222343'
-				stroke-width='3'
-				stroke-miterlimit='10'
-				stroke-linecap='round'
+				strokeWidth='3'
+				strokeMiterlimit='10'
+				strokeLinecap='round'
 			/>
 			<path
 				opacity='0.52'
