@@ -1,21 +1,69 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    // Target e Module
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+
+    // Module Resolution
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
+
+    // Emit
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "outDir": "./dist",
+
+    // Type Checking - Strict
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": false,
+
+    // Interop
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    // Path Mapping (deve corresponder ao vite.config.ts)
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@BvLogo/*": ["src/BvLogo/*"],
+      "@core/*": ["src/core/*"],
+      "@data/*": ["src/data/*"],
+      "@hook/*": ["src/hooks/*"],
+      "@logo/*": ["src/logos/*"],
+      "@type/*": ["src/types/*"],
+      "@util/*": ["src/utils/*"]
+    },
+
+    // Types
+    "types": ["vite/client", "node"]
   },
-  "include": ["src", "lib"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public",
+    "src/main.ts",
+    "src/App.tsx",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.stories.tsx"
+  ]
 }

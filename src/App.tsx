@@ -1,20 +1,15 @@
-import { BvIcon } from '../lib'
+import BvLogo from "./BvLogo";
 
 const App = () => {
-	return (
-		<div>
-			<h1>
-				Bevi Icon -{' '}
-				<BvIcon
-					name='cube'
-					size={2}
-					variant='duo'
-					title='Cube'
-					className='bv-icon'
-				/>
-			</h1>
-		</div>
-	)
-}
+  return (
+    <section style={{ backgroundColor: "#F4F4F4" }}>
+      <BvLogo
+        name="ConsorcioTradicao"
+        color="white"
+        width={256}
+      />
+    </section>
+  );
+};
 
-export default App
+export default App;
