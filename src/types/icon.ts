@@ -20,14 +20,16 @@ export type Metadata = {
 	updatedIn: string;
 };
 
+// Interface para as props de entrada (que podem vir como string ou number)
 export type VariantKey = {
 	variant?: string;
 	weight?: string;
 };
 
-export type ResolvedLogo = {
+// Renomeado de ResolvedLogo para ResolvedIcon
+export type ResolvedIcon = {
 	icon: Icon;
-	svgPath: string;
+	svgPath: string; // Mantido por compatibilidade, mas o loader constrói dinamicamente
 	appliedVariants: Required<VariantKey>;
 	isValid: boolean;
 };

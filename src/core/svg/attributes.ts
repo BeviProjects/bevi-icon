@@ -1,4 +1,4 @@
-import { ATTRIBUTE_MAP } from "@BvLogo/BvLogo.constants";
+import { ATTRIBUTE_MAP } from "@BvIcon/BvIcon.constants";
 
 export const toCamelCase = (str: string): string => {
 	return str.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase());

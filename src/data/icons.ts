@@ -88,5 +88,22 @@ export const icons = [
 			updatedIn: "1.0.0",
 		},
   },
+	{
+		id: "arrow-north-weast",
+		name: "Arrow north weast",
+		displayName: "arrowNorthWeast",
+		status: "active",
+		tags: ["arrow", "north", "west"],
+		variants: {
+			variant: ["solid", "duo", "dark", "light"],
+			weight: [400, 600],
+		},
+		metadata: {
+			createdAt: "2023-02-10",
+			updatedAt: "2023-02-10",
+			addedIn: "1.0.0",
+			updatedIn: "1.0.0",
+		},
+  },
 	// v1.2 - 2023-04-25
 ] as const satisfies readonly Icon[];

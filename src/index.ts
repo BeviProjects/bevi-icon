@@ -1,18 +1,15 @@
 // Componente principal
-export { default as BvLogo } from "./BvLogo";
+export { default as BvIcon } from "./BvIcon";
 
 // Data - permite que usuários importem a lista completa
-export { logos } from "./data/logos";
+export { icons } from "./data/icons";
 
 // Types
 export type {
-	Brandbook,
-	ColorType,
-	ContextType,
-	Logo,
-	LogoName,
-	LogoRegistry,
-	LogoVariants,
+	Icon,
+	IconName,
+	IconRegistry,
+	IconVariants,
 	Metadata,
 	VariantKey,
 	VariantType,

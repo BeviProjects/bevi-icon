@@ -1,2 +1,2 @@
-export * from "./logo";
-export * from "./logoRegistry";
+export * from "./icon";
+export * from "./iconRegistry";

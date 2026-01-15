@@ -1,13 +1,12 @@
-import type { ErrorInfo } from "@core/errors/types";
-import { loadSvg } from "@core/logo/loader";
-import type { SVGElementType } from "@core/svg/types";
+import type { ErrorInfo } from "@/core/errors/types";
+import { loadSvg } from "@/core/icon/loader"; // Ajustado para o novo caminho
+import type { SVGElementType } from "@/core/svg/types";
 import { useEffect, useRef, useState } from "react";
 
 type UseSvgLoaderParams = {
 	name: string;
-	color?: string;
-	context?: string;
-	variant?: string;
+	variant?: string;      // Ex: 'solid', 'duo'
+	weight?: string | number; // Ex: 400, '600'
 	width?: number;
 	height?: number;
 	onError?: (error: ErrorInfo) => void;
@@ -27,9 +26,8 @@ type UseSvgLoaderReturn = {
 
 export function useSvgLoader({
 	name,
-	color,
-	context,
 	variant,
+	weight,
 	width,
 	height,
 	onError,
@@ -42,6 +40,8 @@ export function useSvgLoader({
 
 	useEffect(() => {
 		let isMounted = true;
+
+		// Reseta estados ao mudar as props principais
 		setErrorInfo(null);
 		setIsLoading(true);
 		errorLoggedRef.current = false;
@@ -50,9 +50,9 @@ export function useSvgLoader({
 			try {
 				const result = await loadSvg({
 					name,
-					color,
-					context,
 					variant,
+					// Converte para string para garantir compatibilidade com o loader
+					weight: weight !== undefined ? String(weight) : undefined,
 					width,
 					height,
 					showErrorIcon,
@@ -61,7 +61,7 @@ export function useSvgLoader({
 				if (isMounted) {
 					// Verificar se o resultado contém um erro
 					if (result.error) {
-						// Logar erro apenas uma vez
+						// Logar erro apenas uma vez por tentativa
 						if (!errorLoggedRef.current) {
 							console.error(
 								`[BvIcon] ${result.error.type}:`,
@@ -75,7 +75,7 @@ export function useSvgLoader({
 						setErrorInfo(result.error);
 					}
 
-					// Definir os dados do SVG
+					// Definir os dados do SVG (mesmo com erro, pode haver fallback)
 					setSvgData({
 						attributes: result.attributes,
 						children: result.children,
@@ -84,8 +84,7 @@ export function useSvgLoader({
 					setIsLoading(false);
 				}
 			} catch (error) {
-				// Este catch agora só pega erros inesperados
-				// que não foram tratados no loader
+				// Este catch pega erros inesperados não tratados pelo loader
 				if (isMounted) {
 					const unexpectedError: ErrorInfo = {
 						type: "fetch-failed",
@@ -110,7 +109,8 @@ export function useSvgLoader({
 		return () => {
 			isMounted = false;
 		};
-	}, [name, color, context, variant, width, height, onError, showErrorIcon]);
+		// Dependências atualizadas: removeu color/context, adicionou weight
+	}, [name, variant, weight, width, height, onError, showErrorIcon]);
 
 	return { svgData, errorInfo, isLoading };
 }

@@ -1,28 +1,26 @@
 import { renderSVGElement } from "@core/svg/renderer";
 import type { SVGElementType } from "@core/svg/types";
 import { useSvgLoader } from "@hook/useSvgLoader";
-import type { LogoName } from "@type/logoRegistry";
+import type { IconName } from "@type/iconRegistry";
 import type { ReactElement } from "react";
 import type { BvIconProps } from "./BvIcon.types";
 
-const BvIcon = <T extends LogoName>({
-	color,
-	context,
+const BvIcon = <T extends IconName>({
 	fallback,
 	height,
 	name,
 	onError,
 	showErrorIcon = true,
 	title,
-	variant,
+  variant,
+  weight,
 	width,
 	...props
 }: BvIconProps<T>): ReactElement | null => {
 	const { svgData, errorInfo, isLoading } = useSvgLoader({
 		name,
-		color,
-		context,
-		variant,
+    variant,
+    weight,
 		width,
 		height,
 		onError,

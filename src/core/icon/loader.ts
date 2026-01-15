@@ -1,60 +1,59 @@
-import { InvalidVariantError, LogoNotFoundError } from "@/core/errors";
+import { InvalidVariantError } from "@/core/errors";
+import { IconNotFoundError } from "@/core/errors/IconNotFoundError";
 import type { ErrorInfo } from "@/core/errors/types";
 import { parseSVGDocument } from "@/core/svg/parser";
 import type { SVGElementType } from "@/core/svg/types";
 import { calculateDimensions } from "@/utils/dimensions";
 import { createErrorFallback } from "@/utils/fallback";
-import { buildFileName, resolveLogo } from "./resolver";
+import { buildFileName } from "./builder";
+import { resolveIcon } from "./resolver";
 
-type LoadSvgParams = {
+type LoadIconParams = {
 	name: string;
-	color?: string;
-	context?: string;
 	variant?: string;
+	weight?: string;
 	width?: number;
 	height?: number;
 	showErrorIcon?: boolean;
 };
 
-type LoadSvgResult = {
+type LoadIconResult = {
 	attributes: Record<string, string>;
 	children: SVGElementType[];
-	error?: ErrorInfo; // ADICIONAR campo de erro
+	error?: ErrorInfo;
 };
 
-// Módulos SVG carregados estaticamente
-const svgModules = import.meta.glob("../../logos/**/*.svg", {
+// ALTERAÇÃO IMPORTANTE: Carrega os ícones da pasta icons
+const svgModules = import.meta.glob("../../icons/**/*.svg", {
 	eager: true,
 	query: "?url",
 	import: "default",
 }) as Record<string, string>;
 
-/**
- * Carrega e processa um arquivo SVG
- * Agora retorna o fallback COM a informação do erro ao invés de lançar exceção
- */
-export async function loadSvg(params: LoadSvgParams): Promise<LoadSvgResult> {
-	const { name, color, context, variant, width, height } = params;
+export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
+	const { name, variant, weight, width, height } = params;
 
 	try {
-		// 1. Resolver o logo
-		const resolved = resolveLogo(name, { variant, color, context });
+		// 1. Resolver o ícone
+		const resolved = resolveIcon(name, { variant, weight });
 
 		// 2. Construir o caminho do arquivo
-		const fileName = buildFileName(resolved.appliedVariants);
-		const svgPath = `../../logos/${resolved.logo.id}/${fileName}`;
+		// Lógica: icons/[variant]/[id]-[weight?].svg
+		const fileName = buildFileName(resolved.icon.id, resolved.appliedVariants.weight);
+		const folderName = resolved.appliedVariants.variant;
+
+		const svgPath = `../../icons/${folderName}/${fileName}`;
 		const svgUrl = svgModules[svgPath];
 
 		if (!svgUrl) {
 			const error: ErrorInfo = {
 				type: "fetch-failed",
-				message: "SVG file not found in modules",
+				message: "Icon file not found in modules",
 				details: `Path: ${svgPath}`,
 			};
 
-			// Retorna fallback com informação do erro
 			return {
-				...createErrorFallback(width || 48, height || 48),
+				...createErrorFallback(width || 24, height || 24), // Ajustei fallback default para 24px (padrão de ícone)
 				error,
 			};
 		}
@@ -70,7 +69,7 @@ export async function loadSvg(params: LoadSvgParams): Promise<LoadSvgResult> {
 			};
 
 			return {
-				...createErrorFallback(width || 48, height || 48),
+				...createErrorFallback(width || 24, height || 24),
 				error,
 			};
 		}
@@ -86,7 +85,6 @@ export async function loadSvg(params: LoadSvgParams): Promise<LoadSvgResult> {
 			{ width, height },
 		);
 
-		// 6. Retornar estrutura processada (sucesso - sem erro)
 		return {
 			attributes: {
 				width: finalWidth.toString(),
@@ -96,10 +94,9 @@ export async function loadSvg(params: LoadSvgParams): Promise<LoadSvgResult> {
 			children: element.children || [],
 		};
 	} catch (error) {
-		// Criar ErrorInfo baseado no tipo de erro
 		let errorInfo: ErrorInfo;
 
-		if (error instanceof LogoNotFoundError) {
+		if (error instanceof IconNotFoundError) {
 			errorInfo = {
 				type: "not-found",
 				message: error.message,
@@ -110,10 +107,8 @@ export async function loadSvg(params: LoadSvgParams): Promise<LoadSvgResult> {
 				message: error.message,
 			};
 		} else if ((error as ErrorInfo).type) {
-			// Já é um ErrorInfo
 			errorInfo = error as ErrorInfo;
 		} else {
-			// Erro desconhecido
 			errorInfo = {
 				type: "fetch-failed",
 				message: error instanceof Error ? error.message : "Unknown error",
@@ -121,9 +116,8 @@ export async function loadSvg(params: LoadSvgParams): Promise<LoadSvgResult> {
 			};
 		}
 
-		// Sempre retorna fallback com informação do erro
 		return {
-			...createErrorFallback(width || 48, height || 48),
+			...createErrorFallback(width || 24, height || 24),
 			error: errorInfo,
 		};
 	}

@@ -1,15 +1,12 @@
 import type { ErrorInfo } from "@core/errors";
 import type {
-	ColorType,
-	ContextType,
-	LogoName,
-	VariantType,
-} from "@type/logoRegistry";
+	IconName,
+  VariantType,
+  WeightType
+} from "@type/iconRegistry";
 import type { ReactElement, SVGAttributes } from "react";
 
-export type BvIconProps<T extends LogoName> = {
-	color?: ColorType<T>;
-	context?: ContextType<T>;
+export type BvIconProps<T extends IconName> = {
 	fallback?: ReactElement;
 	height?: number;
 	name: T;
@@ -17,5 +14,6 @@ export type BvIconProps<T extends LogoName> = {
 	showErrorIcon?: boolean;
 	title?: string;
 	variant?: VariantType<T>;
+	weight?: WeightType<T>;
 	width?: number;
 } & Omit<SVGAttributes<SVGSVGElement>, "color" | "width" | "height">;

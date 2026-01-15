@@ -9,7 +9,7 @@ export class InvalidVariantError extends Error {
 		available: string[],
 	) {
 		super(
-			`Invalid ${variantType} "${value}" for logo "${displayName}". ` +
+			`Invalid ${variantType} "${value}" for icon "${displayName}". ` +
 				`Available ${variantType}s: ${available.join(", ")}`,
 		);
 		this.name = "InvalidVariantError";

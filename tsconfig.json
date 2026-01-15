@@ -43,11 +43,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@BvLogo/*": ["src/BvLogo/*"],
+      "@BvIcon/*": ["src/BvIcon/*"],
       "@core/*": ["src/core/*"],
       "@data/*": ["src/data/*"],
       "@hook/*": ["src/hooks/*"],
-      "@logo/*": ["src/logos/*"],
+      "@icon/*": ["src/icons/*"],
       "@type/*": ["src/types/*"],
       "@util/*": ["src/utils/*"]
     },
