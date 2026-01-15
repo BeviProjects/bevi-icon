@@ -35,14 +35,14 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 
 	try {
 		// 1. Resolver o ícone
-		const resolved = resolveIcon(name, { variant, weight });
+    const resolved = resolveIcon(name, { variant, weight });
 
 		// 2. Construir o caminho do arquivo
 		// Lógica: icons/[variant]/[id]-[weight?].svg
 		const fileName = buildFileName(resolved.icon.id, resolved.appliedVariants.weight);
 		const folderName = resolved.appliedVariants.variant;
 
-		const svgPath = `../../icons/${folderName}/${fileName}`;
+    const svgPath = `../../icons/${folderName}/${fileName}`;
 		const svgUrl = svgModules[svgPath];
 
 		if (!svgUrl) {

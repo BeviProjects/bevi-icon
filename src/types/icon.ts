@@ -3,21 +3,22 @@ export type Icon = {
 	name: string;
 	displayName: string;
 	status: "active" | "inactive";
-	tags: string[];
+	tags: readonly string[];
 	variants: IconVariants;
 	metadata: Metadata;
 };
 
 export type IconVariants = {
-	variant: Array<'solid' | 'duo' | 'dark' | 'light'>;
-	weight: Array<400 | 600>;
+	variant: readonly ('solid' | 'duo' | 'dark' | 'light')[];
+	weight: readonly (400 | 600)[];
 };
 
 export type Metadata = {
 	createdAt: string;
 	updatedAt: string;
 	addedIn: string;
-	updatedIn: string;
+  updatedIn: string;
+	iconVersion: string
 };
 
 // Interface para as props de entrada (que podem vir como string ou number)

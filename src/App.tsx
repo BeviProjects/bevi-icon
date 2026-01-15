@@ -4,8 +4,9 @@ const App = () => {
   return (
     <section style={{ backgroundColor: "#F4F4F4" }}>
       <BvIcon
-        name="arrowNorthWeast"
+        name="arrowCircleRight"
         weight={400}
+        variant="dark"
         width={256}
       />
     </section>
