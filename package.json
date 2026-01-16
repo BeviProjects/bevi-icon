@@ -2,7 +2,7 @@
   "name": "bevi-icon",
   "version": "2.0.0",
   "description": "Biblioteca de ícones da Bevi",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -49,10 +49,20 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-tsconfig-paths": "^6.0.2"
   },
+  "homepage": "https://github.com/BeviProjects/bevi-icon#readme",
+	"bugs": {
+		"url": "https://github.com/BeviProjects/bevi-icon/issues",
+		"email": "andreluizmagjr@outlook.com"
+	},
+	"keywords": [
+			"Bevi",
+			"Bevi Icon",
+			"Icon Library"
+		],
   "author": "AndreLuizMagJr",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "..."
+    "url": "https://github.com/BeviProjects/bevi-icon/tree/main"
   }
 }
