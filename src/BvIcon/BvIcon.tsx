@@ -12,15 +12,15 @@ const BvIcon = <T extends IconName>({
 	onError,
 	showErrorIcon = true,
 	title,
-  variant,
-  weight,
+	variant,
+	weight,
 	width,
 	...props
 }: BvIconProps<T>): ReactElement | null => {
 	const { svgData, errorInfo, isLoading } = useSvgLoader({
 		name,
-    variant,
-    weight,
+		variant,
+		weight,
 		width,
 		height,
 		onError,

@@ -1,5 +1,5 @@
-import BvIcon from './BvIcon';
+import BvIcon from "./BvIcon";
 
-export type { BvIconProps } from './BvIcon.types'
+export type { BvIconProps } from "./BvIcon.types";
 
-export default BvIcon
+export default BvIcon;

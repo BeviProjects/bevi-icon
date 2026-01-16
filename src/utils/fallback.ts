@@ -9,7 +9,7 @@ type SVGData = {
  * [EMERGENCY FALLBACK]
  * Usado apenas se o src/icons/fallback.svg falhar ao carregar.
  */
- export function createErrorFallback(width: number, height: number): SVGData {
+export function createErrorFallback(width: number, height: number): SVGData {
 	return {
 		attributes: {
 			width: width.toString(),
@@ -34,4 +34,4 @@ type SVGData = {
 			},
 		],
 	};
- }
+}

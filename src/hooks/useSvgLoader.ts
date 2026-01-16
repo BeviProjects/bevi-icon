@@ -1,11 +1,11 @@
+import { useEffect, useRef, useState } from "react";
 import type { ErrorInfo } from "@/core/errors/types";
 import { loadSvg } from "@/core/icon/loader"; // Ajustado para o novo caminho
 import type { SVGElementType } from "@/core/svg/types";
-import { useEffect, useRef, useState } from "react";
 
 type UseSvgLoaderParams = {
 	name: string;
-	variant?: string;      // Ex: 'solid', 'duo'
+	variant?: string; // Ex: 'solid', 'duo'
 	weight?: string | number; // Ex: 400, '600'
 	width?: number;
 	height?: number;
