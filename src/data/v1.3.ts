@@ -1,4 +1,4 @@
-export const v1_2 = [
+export const v1_3 = [
 	{
 		id: 'accessible',
 		name: 'Accessible',
@@ -115,7 +115,7 @@ export const v1_2 = [
 		tags: ['accept', 'done'],
 		variants: {
 			variant: ['solid', 'duo', 'dark', 'light'],
-			weight: [400],
+			weight: [600],
 		},
 		metadata: {
 			createdAt: '2024-08-14',

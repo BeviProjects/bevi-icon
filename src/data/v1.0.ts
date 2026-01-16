@@ -145,10 +145,10 @@ export const v1_0 = [
 	},
 	{
 		id: 'blocks',
-		name: 'Beviprotege',
-		displayName: 'beviprotege',
+		name: 'Blocks',
+		displayName: 'blocks',
 		status: 'active',
-		tags: ['arrow', 'bevi', 'logo', 'shield'],
+		tags: ['cube', 'square'],
 		variants: {
 			variant: ['solid', 'duo', 'dark', 'light'],
 			weight: [400],
@@ -433,7 +433,7 @@ export const v1_0 = [
 	},
 	{
 		id: 'fala-bevi',
-		name: 'Fala bevi',
+		name: 'Fala Bevi',
 		displayName: 'falaBevi',
 		status: 'active',
 		tags: ['bevi', 'speak'],

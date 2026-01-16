@@ -126,6 +126,24 @@ export const v1_2 = [
 		},
 	},
 	{
+		id: 'hourglass-top',
+		name: 'Hourglass top',
+		displayName: 'hourglassTop',
+		status: 'active',
+		tags: ['time', 'clock', 'hourglass'],
+		variants: {
+			variant: ['solid', 'duo', 'dark', 'light'],
+			weight: [400],
+		},
+		metadata: {
+			createdAt: '2023-04-25',
+			updatedAt: '2023-04-25',
+			addedIn: '1.0.0',
+			updatedIn: '1.0.0',
+			iconVersion: '1.2',
+		},
+	},
+	{
 		id: 'laptop-chart',
 		name: 'Laptop chart',
 		displayName: 'laptopChart',
@@ -725,6 +743,42 @@ export const v1_2 = [
 		displayName: 'freeCancellation',
 		status: 'active',
 		tags: ['calendar', 'date', 'check', 'cancel', 'close'],
+		variants: {
+			variant: ['solid', 'duo', 'dark', 'light'],
+			weight: [400],
+		},
+		metadata: {
+			createdAt: '2023-04-25',
+			updatedAt: '2023-04-25',
+			addedIn: '1.0.0',
+			updatedIn: '1.0.0',
+			iconVersion: '1.2',
+		},
+	},
+	{
+		id: 'gasoline',
+		name: 'Gasoline',
+		displayName: 'gasoline',
+		status: 'active',
+		tags: ['car', 'gas'],
+		variants: {
+			variant: ['solid', 'duo', 'dark', 'light'],
+			weight: [400],
+		},
+		metadata: {
+			createdAt: '2023-04-25',
+			updatedAt: '2023-04-25',
+			addedIn: '1.0.0',
+			updatedIn: '1.0.0',
+			iconVersion: '1.2',
+		},
+	},
+	{
+		id: 'gold',
+		name: 'Gold',
+		displayName: 'gold',
+		status: 'active',
+		tags: ['money', 'coin', "treasure"],
 		variants: {
 			variant: ['solid', 'duo', 'dark', 'light'],
 			weight: [400],

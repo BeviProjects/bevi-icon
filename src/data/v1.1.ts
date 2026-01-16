@@ -378,6 +378,24 @@ export const v1_1 = [
 		},
 	},
 	{
+		id: 'chevron-up-double',
+		name: 'Chevron up double',
+		displayName: 'chevronUpDouble',
+		status: 'active',
+		tags: ['arrow', 'double', 'chevron', 'up'],
+		variants: {
+			variant: ['solid'],
+			weight: [600],
+		},
+		metadata: {
+			createdAt: '2023-02-10',
+			updatedAt: '2023-02-10',
+			addedIn: '1.0.0',
+			updatedIn: '1.0.0',
+			iconVersion: '1.1',
+		},
+	},
+	{
 		id: 'chevron-upward',
 		name: 'Chevron upward',
 		displayName: 'chevronUpward',
@@ -491,6 +509,24 @@ export const v1_1 = [
 		displayName: 'description',
 		status: 'active',
 		tags: ['paper', 'document'],
+		variants: {
+			variant: ['solid', 'duo', 'dark', 'light'],
+			weight: [400],
+		},
+		metadata: {
+			createdAt: '2023-02-10',
+			updatedAt: '2023-02-10',
+			addedIn: '1.0.0',
+			updatedIn: '1.0.0',
+			iconVersion: '1.1',
+		},
+	},
+	{
+		id: 'draft',
+		name: 'Draft',
+		displayName: 'draft',
+		status: 'active',
+		tags: ['paper', 'a4'],
 		variants: {
 			variant: ['solid', 'duo', 'dark', 'light'],
 			weight: [400],
@@ -672,8 +708,8 @@ export const v1_1 = [
 		status: 'active',
 		tags: ['arrow', 'external', 'link'],
 		variants: {
-			variant: ['solid'],
-			weight: [600],
+			variant: ['solid', 'duo', 'dark', 'light'],
+			weight: [400, 600],
 		},
 		metadata: {
 			createdAt: '2023-02-10',
