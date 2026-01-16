@@ -30,19 +30,67 @@ const svgModules = import.meta.glob("../../icons/**/*.svg", {
 	import: "default",
 }) as Record<string, string>;
 
+/**
+ * Função auxiliar para tentar carregar o arquivo de fallback.svg
+ */
+async function loadFallbackFile(
+	width: number,
+	height: number,
+	originalError: ErrorInfo,
+): Promise<LoadIconResult> {
+	const fallbackPath = "../../icons/fallback.svg";
+	const fallbackUrl = svgModules[fallbackPath];
+
+	// Tenta carregar o arquivo físico de fallback
+	if (fallbackUrl) {
+		try {
+			const response = await fetch(fallbackUrl);
+			if (response.ok) {
+				const content = await response.text();
+				const { element, viewBox, originalWidth, originalHeight } =
+					parseSVGDocument(content);
+
+				const { width: finalWidth, height: finalHeight } = calculateDimensions(
+					{ width: originalWidth, height: originalHeight },
+					{ width, height },
+				);
+
+				return {
+					attributes: {
+						width: finalWidth.toString(),
+						height: finalHeight.toString(),
+						viewBox: viewBox || `0 0 ${originalWidth} ${originalHeight}`,
+					},
+					children: element.children || [],
+					error: originalError,
+				};
+			}
+		} catch (e) {
+			console.warn("[BvIcon] Failed to load fallback.svg file:", e);
+		}
+	}
+
+	// Se falhar, usa o fallback gerado via código (utils/fallback)
+	return {
+		...createErrorFallback(width, height),
+		error: originalError,
+	};
+}
+
 export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 	const { name, variant, weight, width, height } = params;
 
+	const fallbackWidth = width ?? height ?? 32;
+	const fallbackHeight = height ?? width ?? 32;
+
 	try {
 		// 1. Resolver o ícone
-    const resolved = resolveIcon(name, { variant, weight });
+		const resolved = resolveIcon(name, { variant, weight });
 
-		// 2. Construir o caminho do arquivo
-		// Lógica: icons/[variant]/[id]-[weight?].svg
+		// 2. Construir caminho
 		const fileName = buildFileName(resolved.icon.id, resolved.appliedVariants.weight);
 		const folderName = resolved.appliedVariants.variant;
-
-    const svgPath = `../../icons/${folderName}/${fileName}`;
+		const svgPath = `../../icons/${folderName}/${fileName}`;
 		const svgUrl = svgModules[svgPath];
 
 		if (!svgUrl) {
@@ -51,35 +99,26 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 				message: "Icon file not found in modules",
 				details: `Path: ${svgPath}`,
 			};
-
-			return {
-				...createErrorFallback(width || 24, height || 24), // Ajustei fallback default para 24px (padrão de ícone)
-				error,
-			};
+			return await loadFallbackFile(fallbackWidth, fallbackHeight, error);
 		}
 
-		// 3. Buscar o arquivo SVG
+		// 3. Fetch
 		const response = await fetch(svgUrl);
 
 		if (!response.ok) {
 			const error: ErrorInfo = {
 				type: "fetch-failed",
 				message: "Failed to fetch SVG",
-				details: `Status: ${response.status} - ${response.statusText}`,
+				details: `Status: ${response.status}`,
 			};
-
-			return {
-				...createErrorFallback(width || 24, height || 24),
-				error,
-			};
+			return await loadFallbackFile(fallbackWidth, fallbackHeight, error);
 		}
 
-		// 4. Parsear o SVG
+		// 4. Parse (Sucesso)
 		const content = await response.text();
 		const { element, viewBox, originalWidth, originalHeight } =
 			parseSVGDocument(content);
 
-		// 5. Calcular dimensões finais
 		const { width: finalWidth, height: finalHeight } = calculateDimensions(
 			{ width: originalWidth, height: originalHeight },
 			{ width, height },
@@ -93,21 +132,14 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 			},
 			children: element.children || [],
 		};
+
 	} catch (error) {
 		let errorInfo: ErrorInfo;
 
 		if (error instanceof IconNotFoundError) {
-			errorInfo = {
-				type: "not-found",
-				message: error.message,
-			};
+			errorInfo = { type: "not-found", message: error.message };
 		} else if (error instanceof InvalidVariantError) {
-			errorInfo = {
-				type: "invalid-variant",
-				message: error.message,
-			};
-		} else if ((error as ErrorInfo).type) {
-			errorInfo = error as ErrorInfo;
+			errorInfo = { type: "invalid-variant", message: error.message };
 		} else {
 			errorInfo = {
 				type: "fetch-failed",
@@ -116,9 +148,6 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 			};
 		}
 
-		return {
-			...createErrorFallback(width || 24, height || 24),
-			error: errorInfo,
-		};
+		return await loadFallbackFile(fallbackWidth, fallbackHeight, errorInfo);
 	}
 }
