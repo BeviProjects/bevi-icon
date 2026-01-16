@@ -492,7 +492,7 @@ export const v1_2 = [
 		status: 'active',
 		tags: ['clips', 'file'],
 		variants: {
-			variant: ['solid', 'duo', 'dark', 'light'],
+			variant: ['solid', 'dark', 'light'],
 			weight: [400],
 		},
 		metadata: {
