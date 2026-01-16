@@ -5,6 +5,13 @@ import type { IconName } from "@type/iconRegistry";
 import type { ReactElement } from "react";
 import type { BvIconProps } from "./BvIcon.types";
 
+const variantTheme = {
+	solid: "#222343",
+	dark: "#222343",
+	light: "#25CBDB",
+	duo: "inherit",
+} as const;
+
 const BvIcon = <T extends IconName>({
 	fallback,
 	height,
@@ -28,7 +35,8 @@ const BvIcon = <T extends IconName>({
 	});
 
 	if (errorInfo && fallback) return fallback;
-	if (isLoading || !svgData) return null;
+  if (isLoading || !svgData) return null;
+	const themeColor = variantTheme[variant as keyof typeof variantTheme];
 
 	return (
 		<svg
@@ -36,7 +44,8 @@ const BvIcon = <T extends IconName>({
 			xmlns="http://www.w3.org/2000/svg"
 			width={svgData.attributes.width}
 			height={svgData.attributes.height}
-			viewBox={svgData.attributes.viewBox}
+      viewBox={svgData.attributes.viewBox}
+			color={themeColor}
 			data-logo-name={name}
 			data-error={errorInfo?.type}
 			aria-label={errorInfo ? `Error: ${errorInfo.type}` : name}
