@@ -378,9 +378,9 @@ export const v1_2 = [
 		},
 	},
 	{
-		id: "health-and-safety",
-		name: "Health and safety",
-		displayName: "healthAndSafety",
+		id: "shield-health",
+		name: "Shield health",
+		displayName: "shieldHealth",
 		status: "active",
 		tags: ["shield", "health", "doctor", "medicine"],
 		variants: {
@@ -389,9 +389,9 @@ export const v1_2 = [
 		},
 		metadata: {
 			createdAt: "2023-04-25",
-			updatedAt: "2023-04-25",
+			updatedAt: "2026-01-19",
 			addedIn: "1.0.0",
-			updatedIn: "1.0.0",
+			updatedIn: "2.0.2",
 			iconVersion: "1.2",
 		},
 	},
