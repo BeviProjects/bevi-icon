@@ -108,7 +108,7 @@ propriedades, como variante, tamanho e título. Por exemplo:
 <BvIcon
 	name='cube'
 	variant='duo'
-	size={4}
+	width={42}
 	title='Ícone de Cubo'
 />
 ```

@@ -1,68 +1,68 @@
 {
-  "name": "bevi-icon",
-  "version": "2.0.0",
-  "description": "Biblioteca de ícones da Bevi",
-  "private": false,
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
-    }
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "prepublishOnly": "npm run build",
-    "pack": "npm run build && npm pack",
-    "lint": "biome check",
-    "lint:fix": "biome check --write",
-    "format": "biome format --write",
-    "format:all": "biome check --write --unsafe"
-  },
-  "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.3.9",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "globals": "^16.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4",
-    "vite-plugin-dts": "^4.5.4",
-    "vite-tsconfig-paths": "^6.0.2"
-  },
-  "homepage": "https://github.com/BeviProjects/bevi-icon#readme",
+	"name": "bevi-icon",
+	"version": "2.0.0",
+	"description": "Biblioteca de ícones da Bevi",
+	"private": false,
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"preview": "vite preview",
+		"prepublishOnly": "npm run build",
+		"pack": "npm run build && npm pack",
+		"lint": "biome check",
+		"lint:fix": "biome check --write",
+		"format": "biome format --write",
+		"format:all": "biome check --write --unsafe"
+	},
+	"dependencies": {
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.9",
+		"@types/node": "^24.10.1",
+		"@types/react": "^19.2.5",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.1",
+		"babel-plugin-react-compiler": "^1.0.0",
+		"globals": "^16.5.0",
+		"typescript": "~5.9.3",
+		"typescript-eslint": "^8.46.4",
+		"vite": "^7.2.4",
+		"vite-plugin-dts": "^4.5.4",
+		"vite-tsconfig-paths": "^6.0.2"
+	},
+	"homepage": "https://github.com/BeviProjects/bevi-icon#readme",
 	"bugs": {
 		"url": "https://github.com/BeviProjects/bevi-icon/issues",
 		"email": "andreluizmagjr@outlook.com"
 	},
 	"keywords": [
-			"Bevi",
-			"Bevi Icon",
-			"Icon Library"
-		],
-  "author": "AndreLuizMagJr",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BeviProjects/bevi-icon/tree/main"
-  }
+		"Bevi",
+		"Bevi Icon",
+		"Icon Library"
+	],
+	"author": "AndreLuizMagJr",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/BeviProjects/bevi-icon/tree/main"
+	}
 }
