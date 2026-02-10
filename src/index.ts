@@ -1,4 +1,3 @@
-'use client'
 // Componente principal
 export { default as BvIcon } from "./BvIcon";
 
