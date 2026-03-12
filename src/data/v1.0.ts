@@ -126,24 +126,6 @@ export const v1_0 = [
 		},
 	},
 	{
-		id: "beviprotege",
-		name: "Beviprotege",
-		displayName: "beviprotege",
-		status: "active",
-		tags: ["arrow", "bevi", "logo", "shield"],
-		variants: {
-			variant: ["solid", "duo", "dark", "light"],
-			weight: [400],
-		},
-		metadata: {
-			createdAt: "2022-02-13",
-			updatedAt: "2022-02-13",
-			addedIn: "1.0.0",
-			updatedIn: "1.0.0",
-			iconVersion: "1.0",
-		},
-	},
-	{
 		id: "blocks",
 		name: "Blocks",
 		displayName: "blocks",
