@@ -76,7 +76,7 @@ export const v1_0 = [
 		name: "Autorenew",
 		displayName: "autorenew",
 		status: "active",
-		tags: ["bevi", "load", "loading", "renew"],
+		tags: ["load", "loading", "renew"],
 		variants: {
 			variant: ["solid", "duo", "dark", "light"],
 			weight: [400],
