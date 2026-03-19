@@ -17,4 +17,4 @@ export const v2_0 = [
 			iconVersion: '2.0',
 		},
 	},
-]
+] as const

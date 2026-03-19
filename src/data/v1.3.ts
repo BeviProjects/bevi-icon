@@ -1,22 +1,4 @@
 export const v1_3 = [
-	{ // Esse ícone não deve ficar aqui, mas eu não tive tempo para adicionar em uma versão 2.0
-		id: 'clt',
-		name: 'CLT',
-		displayName: 'clt',
-		status: 'active',
-		tags: ['governo', 'work', 'wallet'],
-		variants: {
-			variant: ['solid', 'duo', 'dark', 'light'],
-			weight: [400],
-		},
-		metadata: {
-			createdAt: '2026-02-23',
-			updatedAt: '2026-02-23',
-			addedIn: '2.0.4',
-			updatedIn: '2.0.4',
-			iconVersion: '2.0',
-		},
-	},
 	{
 		id: 'accessible',
 		name: 'Accessible',
@@ -348,14 +330,14 @@ export const v1_3 = [
 		status: 'active',
 		tags: ['file', 'save'],
 		variants: {
-			variant: ['solid', 'duo', 'dark', 'light'],
-			weight: [400],
+			variant: ['solid'],
+			weight: [400, 600],
 		},
 		metadata: {
 			createdAt: '2024-08-14',
-			updatedAt: '2024-08-14',
+			updatedAt: '2026-03-19',
 			addedIn: '1.3.0',
-			updatedIn: '1.3.0',
+			updatedIn: '2.1.0',
 			iconVersion: '1.3',
 		},
 	},
@@ -407,9 +389,9 @@ export const v1_3 = [
 		},
 		metadata: {
 			createdAt: '2024-08-14',
-			updatedAt: '2024-08-14',
+			updatedAt: '2026-03-19',
 			addedIn: '1.3.0',
-			updatedIn: '1.3.0',
+			updatedIn: '2.1.0',
 			iconVersion: '1.3',
 		},
 	},
@@ -492,14 +474,14 @@ export const v1_3 = [
 		status: 'active',
 		tags: ['information', 'help'],
 		variants: {
-			variant: ['solid', 'duo', 'dark', 'light'],
-			weight: [400],
+			variant: ['solid'],
+			weight: [400, 600],
 		},
 		metadata: {
 			createdAt: '2024-08-14',
-			updatedAt: '2024-08-14',
+			updatedAt: '2026-03-19',
 			addedIn: '1.3.0',
-			updatedIn: '1.3.0',
+			updatedIn: '2.1.0',
 			iconVersion: '1.3',
 		},
 	},
