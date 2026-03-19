@@ -35,7 +35,7 @@ const BvIcon = <T extends IconName>({
 	});
 
 	if (errorInfo && fallback) return fallback;
-  if (isLoading || !svgData) return null;
+	if (isLoading || !svgData) return null;
 	const themeColor = variantTheme[variant as keyof typeof variantTheme];
 
 	return (
@@ -44,7 +44,7 @@ const BvIcon = <T extends IconName>({
 			xmlns="http://www.w3.org/2000/svg"
 			width={svgData.attributes.width}
 			height={svgData.attributes.height}
-      viewBox={svgData.attributes.viewBox}
+			viewBox={svgData.attributes.viewBox}
 			color={themeColor}
 			data-logo-name={name}
 			data-error={errorInfo?.type}
