@@ -144,24 +144,6 @@ export const v2_1 = [
 		},
 	},
 	{
-		id: "autorenew",
-		name: "Autorenew",
-		displayName: "autorenew",
-		status: "active",
-		tags: ["refresh", "sync", "loading"],
-		variants: {
-			variant: ["solid"],
-			weight: [400, 600],
-		},
-		metadata: {
-			createdAt: "2026-03-19",
-			updatedAt: "2026-03-19",
-			addedIn: "2.1.0",
-			updatedIn: "2.1.0",
-			iconVersion: "2.0",
-		},
-	},
-	{
 		id: "bank-protect",
 		name: "Bank protect",
 		displayName: "bankProtect",
