@@ -1,6 +1,6 @@
 {
 	"name": "bevi-icon",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"description": "Biblioteca de ícones da Bevi",
 	"private": false,
 	"type": "module",
