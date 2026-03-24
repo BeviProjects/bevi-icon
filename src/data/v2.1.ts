@@ -22,7 +22,7 @@ export const v2_1 = [
 		name: "Add link",
 		displayName: "addLink",
 		status: "active",
-		tags: ["link", "plus, add"],
+		tags: ["link", "plus", "add"],
 		variants: {
 			variant: ["solid"],
 			weight: [400, 600],
