@@ -497,9 +497,9 @@ export const v2_1 = [
 		},
 		metadata: {
 			createdAt: "2026-03-19",
-			updatedAt: "2026-03-19",
+			updatedAt: "2026-06-09",
 			addedIn: "2.1.0",
-			updatedIn: "2.1.0",
+			updatedIn: "2.2.0",
 			iconVersion: "2.0",
 		},
 	},

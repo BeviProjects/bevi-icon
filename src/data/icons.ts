@@ -5,6 +5,7 @@ import { v1_2 } from "./v1.2";
 import { v1_3 } from "./v1.3";
 import { v2_0 } from "./v2.0";
 import { v2_1 } from "./v2.1";
+import { v2_2 } from "./v2.2";
 
 export const icons = [
 	...v1_0,
@@ -13,6 +14,7 @@ export const icons = [
 	...v1_3,
 	...v2_0,
 	...v2_1,
+	...v2_2,
 ] as const satisfies readonly Icon[];
 
 // v1.1 2023-02-1
