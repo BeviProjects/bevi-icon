@@ -19,7 +19,7 @@ const BvIcon = <T extends IconName>({
 	onError,
 	showErrorIcon = true,
 	title,
-	variant = 'solid',
+	variant = "solid",
 	weight,
 	width,
 	...props
