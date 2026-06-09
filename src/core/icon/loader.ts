@@ -1,6 +1,6 @@
 import { InvalidVariantError } from "@/core/errors";
 import { IconNotFoundError } from "@/core/errors/IconNotFoundError";
-import type { ErrorInfo } from "@/core/errors/types";
+import type { IconErrorType } from "@/core/errors/types";
 import { parseSVGDocument } from "@/core/svg/parser";
 import type { SVGElementType } from "@/core/svg/types";
 import { calculateDimensions } from "@/utils/dimensions";
@@ -20,7 +20,7 @@ type LoadIconParams = {
 type LoadIconResult = {
 	attributes: Record<string, string>;
 	children: SVGElementType[];
-	error?: ErrorInfo;
+	error?: IconErrorType;
 };
 
 // ALTERAÇÃO IMPORTANTE: Carrega os ícones da pasta icons
@@ -57,7 +57,7 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 
 		// Caso o arquivo não exista no mapa de módulos
 		if (!svgUrl) {
-			const error: ErrorInfo = {
+			const error: IconErrorType = {
 				type: "fetch-failed",
 				message: "Icon file not found in modules",
 				details: `Path: ${svgPath}`,
@@ -74,7 +74,7 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 		const response = await fetch(svgUrl);
 
 		if (!response.ok) {
-			const error: ErrorInfo = {
+			const error: IconErrorType = {
 				type: "fetch-failed",
 				message: "Failed to fetch SVG",
 				details: `Status: ${response.status} - ${response.statusText}`,
@@ -107,7 +107,7 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 		};
 	} catch (error) {
 		// Tratamento de erros de lógica (IconNotFound, InvalidVariant, etc)
-		let errorInfo: ErrorInfo;
+		let errorInfo: IconErrorType;
 
 		if (error instanceof IconNotFoundError) {
 			errorInfo = {
@@ -119,8 +119,8 @@ export async function loadSvg(params: LoadIconParams): Promise<LoadIconResult> {
 				type: "invalid-variant",
 				message: error.message,
 			};
-		} else if ((error as ErrorInfo).type) {
-			errorInfo = error as ErrorInfo;
+		} else if ((error as IconErrorType).type) {
+			errorInfo = error as IconErrorType;
 		} else {
 			errorInfo = {
 				type: "fetch-failed",

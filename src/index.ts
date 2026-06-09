@@ -1,8 +1,8 @@
 // Componente principal
-export { default as BvIcon } from "./BvIcon";
+export { default as BvIcon } from './BvIcon'
 
 // Data - permite que usuários importem a lista completa
-export { icons as allBvIcons } from "./data/icons";
+export { icons as allBvIcons } from './data/icons'
 
 // Types
 export type {
@@ -13,4 +13,6 @@ export type {
 	Metadata as BvMetadata,
 	VariantKey as BvVariantKey,
 	VariantType as BvVariantType,
-} from "./types";
+} from './types'
+
+export type { IconErrorType } from './core/errors/types'

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { ErrorInfo } from "@/core/errors/types";
+import type { IconErrorType } from "@/core/errors/types";
 import { loadSvg } from "@/core/icon/loader"; // Ajustado para o novo caminho
 import type { SVGElementType } from "@/core/svg/types";
 
@@ -9,7 +9,7 @@ type UseSvgLoaderParams = {
 	weight?: string | number; // Ex: 400, '600'
 	width?: number;
 	height?: number;
-	onError?: (error: ErrorInfo) => void;
+	onError?: (error: IconErrorType) => void;
 	showErrorIcon?: boolean;
 };
 
@@ -20,7 +20,7 @@ type SVGData = {
 
 type UseSvgLoaderReturn = {
 	svgData: SVGData | null;
-	errorInfo: ErrorInfo | null;
+	errorInfo: IconErrorType | null;
 	isLoading: boolean;
 };
 
@@ -34,7 +34,7 @@ export function useSvgLoader({
 	showErrorIcon = true,
 }: UseSvgLoaderParams): UseSvgLoaderReturn {
 	const [svgData, setSvgData] = useState<SVGData | null>(null);
-	const [errorInfo, setErrorInfo] = useState<ErrorInfo | null>(null);
+	const [errorInfo, setErrorInfo] = useState<IconErrorType | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const errorLoggedRef = useRef(false);
 
@@ -86,7 +86,7 @@ export function useSvgLoader({
 			} catch (error) {
 				// Este catch pega erros inesperados não tratados pelo loader
 				if (isMounted) {
-					const unexpectedError: ErrorInfo = {
+					const unexpectedError: IconErrorType = {
 						type: "fetch-failed",
 						message: "Unexpected error in loader",
 						details: error instanceof Error ? error.message : String(error),

@@ -1,4 +1,4 @@
-import type { ErrorInfo } from "@core/errors";
+import type { IconErrorType } from "@core/errors";
 import type { IconName, VariantType, WeightType } from "@type/iconRegistry";
 import type { ReactElement, SVGAttributes } from "react";
 
@@ -6,7 +6,7 @@ export type BvIconProps<T extends IconName> = {
 	fallback?: ReactElement;
 	height?: number;
 	name: T;
-	onError?: (error: ErrorInfo) => void;
+	onError?: (error: IconErrorType) => void;
 	showErrorIcon?: boolean;
 	title?: string;
 	variant?: VariantType<T>;
